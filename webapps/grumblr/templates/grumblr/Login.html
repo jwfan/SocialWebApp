@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Signin Template for Grumblr</title>
+    {% load static %}
+    <link href="{% static "grumblr/css/login_registartion.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "grumblr/css/bootstrap.min.css" %}">
+</head>
+<body>
+<div class="container">
+    <h1 class="Grumblr-heading"> Grumblr </h1>
+    <div class="middle">
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+    </div>
+    <form class="form-signin" action={% url 'login' %} method="post">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Log into your Grumblr account</h2>
+        <div class="username-inputdiv">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            <label for="inputUsername" class="sr-only">Username</label>
+            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
+                   autofocus>
+        </div>
+        <div class="password-inputdiv">
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password"
+                   required>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" class="checkbox-agree" value="remember-me"> Remember me
+            </label>
+            <a class="password-link" href={% url 'password_reset' %}>I've lost my password</a>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in
+        </button>
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+    <div class="dash">
+        <hr class="hr-1"/>
+        <label>Or</label>
+        <hr class="hr-2"/>
+    </div>
+    <div class="btn-group-vertical" role="group" aria-label="...">
+        <button class="btn btn-lg btn-primary btn-block">Login with Google</button>
+        <button class="btn btn-lg btn-primary btn-block" onclick="window.location.href='{% url 'register' %}'">Sign up
+
+        </button>
+    </div>
+</div> <!-- /container -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then bootstraprap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+{% load static %}
+<script src="{% static "grumblr/js/bootstrap.min.js" %}">
+</body>
+</html>

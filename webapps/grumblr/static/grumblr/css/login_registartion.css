@@ -1,0 +1,167 @@
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #eee;
+}
+
+.Grumblr-heading {
+    font-size: 50px;
+    max-width: fit-content;
+    padding: 0;
+    margin: 0 auto !important;
+    text-align: center;
+}
+
+.form-signin {
+    max-width: 400px;
+    padding: 0px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.form-signin .glyphicon .glyphicon-user,
+.form-signin .glyphicon .glyphicon-pencil {
+    margin-bottom: 10px;
+}
+
+.form-signin .form-signin-heading {
+    margin-left: 55px;
+    font-size: 20px;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 20px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    width: 366px;
+    display: inline;
+}
+
+.registrationform .form-control {
+    width: 400px;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: 5px;
+}
+
+
+.registrationform input[type="password"] {
+    margin-bottom: 5px;
+}
+
+.form-signin button[type="submit"] {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.registrationform button[type="regissubmit"] {
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+}
+
+.form-signin .password-link {
+    font-size: 15px;
+    margin-left: 125px;
+
+}
+
+.form-signin .checkbox {
+    margin-left: 0px;
+    display: inline;
+    font-size: 15px;
+}
+
+.form-signin .username-inputdiv,
+.form-signin .password-inputdiv {
+    margin-left: 0px;
+    font-size: 25px;
+}
+
+.registrationform .checkbox {
+    display: inline;
+}
+
+.registrationform .form-signin .username-inputdiv,
+.registrationform .form-signin .password-inputdiv {
+    margin-left: 0px;
+    font-size: 25px;
+}
+
+.registrationform .name-inputdiv .name-1:focus,
+.registrationform .name-inputdiv .name-2:focus {
+    z-index: 2;
+}
+
+.registrationform .name-inputdiv .name-1,
+.registrationform .name-inputdiv .name-2 {
+    margin-bottom: 5px;
+    margin-right: -5px;
+    width: 199px !important;
+}
+
+.dash {
+    margin-top: 15px;
+    font-size: 15px;
+    text-align: center;
+    color: #006699;
+    margin-bottom: 10px;
+}
+
+.dash .hr-1 {
+    width: 180px;
+    border-color: #006699;
+    margin: 0 auto;
+    display: inline-block;
+    margin-bottom: 5px;
+
+}
+
+.dash .hr-2 {
+    width: 180px;
+    border-color: #006699;
+    margin: 0 auto;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.btn-group-vertical {
+    max-width: 400px;
+    padding: 0px;
+    display: block !important;
+    margin: 0 auto;
+}
+
+.reigsbtn {
+    margin-top: 10px;
+}
+
+.checkbox-agree {
+    position: relative !important;
+}
+
+.middle {
+    max-width: fit-content ;
+    max-height: fit-content;
+    margin: 0 auto !important;
+    font-size: 15px !important;
+    color: red;
+}

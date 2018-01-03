@@ -1,0 +1,10 @@
+{% extends "registration/base_password_reset.html" %}
+{% block title %}
+    <title>Need Email validation</title>
+{% endblock %}
+{% block message %}
+    <div class="message">
+    <p>Validation Email has been sent to your email address:{{ email }}.
+        Please valid you email address by the link in your email before any operations.</p>
+    </div>
+{% endblock %}

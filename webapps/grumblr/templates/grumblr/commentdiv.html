@@ -1,0 +1,14 @@
+<div class='col-xs-3 post-profile'>
+    <a href='{% url 'profile' comment.user.username %}'>
+        <img src='{% url 'getimage' comment.user.username %}' alt='Noprofile' class='img-thumbnail'>
+    </a>
+</div>
+<div class='col-xs-9 post-content'>
+    <div class='sidebar-group'>
+        <a href='{% url 'profile' comment.user.username %}'>{{ comment.user.username }}</a>
+        <p>{{ post.content }}</p>
+    </div>
+    <div>
+        <button type='submit' class='btn btn-default likebtn'>Like</button>
+    </div>
+</div>

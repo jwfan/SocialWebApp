@@ -1,0 +1,19 @@
+sudo yum install httpd24
+pip install django
+sudo yum install gcc
+wget https://github.com/GrahamDumpleton/mod_wsgi/archive/4.5.20.tar.gz
+tar xvfz 4.5.20.tar.gz
+cd mod_wsgi-4.5.20/
+./configure
+make
+make install
+
+sudo yum install python-devel
+sudo yum install httpd-devel
+
+
+sudo service httpd start
+chkconfig --list httpd
+sudo service httpd status
+
+sudo yum install -y mysql56-server

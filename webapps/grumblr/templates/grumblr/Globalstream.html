@@ -1,0 +1,114 @@
+{% extends "grumblr/base.html" %}
+
+{% block title %}GlobalStream Template for Grumblr{% endblock %}
+<!-- Bootstrap CSS -->
+
+{% block sidebar %}
+    <div class="sidebar-recommend sidebar-group">
+        <div class="sidebar-group">People you may know</div>
+        <div class="recommend-1">
+            {% for userl in userlist1 %}
+                <a href="{% url 'profile' userl.username %}"><img
+                        src="{% url 'getimage' userl.username %}" alt="Noprofile" class="img-thumbnail"
+                        title={{ userl }}></a>
+            {% endfor %}
+        </div>
+        <div class="recommend-2">
+            {% for userl in userlist2 %}
+                <a href="{% url 'profile' userl.username %}"><img
+                        src="{% url 'getimage' userl.username %}" alt="Noprofile" class="img-thumbnail"
+                        title={{ userl }}></a>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock sidebar %}
+
+{% block postbar %}
+    <div class="post-new">
+        <div class="middle">
+            {% for error in errors %}
+                <p>
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </div>
+
+        <!--form class="post-newtext" action={'% url 'newpost' %} method="post"-->
+        {{ postform }}
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="submit" class="btn btn-lg btn-primary">
+                Tag friends
+            </button>
+            <button type="submit" class="btn btn-lg btn-primary">
+                emoji
+            </button>
+        </div>
+        <div class="post-button">
+            <button id='add-post' class="btn btn-default btn-primary">
+                Post
+            </button>
+        </div>
+
+    </div>
+    <hr class="hr1"/>
+{% endblock postbar %}
+{% block primarypage %}
+    <div>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a id="globaltab" href="#global" aria-controls="global" role="tab"
+                                                      data-toggle="tab">Global</a></li>
+            <li role="presentation"><a href="#following" id="followtab" aria-controls="following" role="tab" data-toggle="tab">Following</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="global">
+                 <textarea id="post-template" style="display:none">
+                     <div class="postiddiv">
+                         <div class="row blog-post">
+                             <div class="col-xs-4 post-profile">
+                                <a id="profilehref"><img id="imagehref" alt="Noprofile"
+                                                         class="img-thumbnail"></a>
+                                <div class="sidebar-group">
+                                    <a class="profilehref" id="profileusername"></a>
+                                </div>
+                             </div>
+                            <div class="col-xs-8 post-content">
+                                <p id="postcontent"></p>
+                                <div class="post-bottom">
+                                    <button type="submit" class="btn btn-default likebtn">
+                                        like
+                                    </button>
+                                    <span class="blog-post-meta timestamp" id="poststamp"></span>
+                                </div>
+                                <hr>
+                                <!--<form class='post-newcomment'>-->
+                                <div id="commentform" class="commentdiv">
+                                </div>
+                                <button class='btn btn-lg btn-primary btn-comment add-comment'>Comment</button>
+                                <!--</form>-->
+                                <div class='comments'>
+                                </div>
+                            </div>
+                         </div>
+                         <hr class="hr1">
+                     </div>
+                 </textarea>
+                <textarea id="comment-template" style="display: none">
+                    <div class="commentblock">
+                        <a id="commenthref"><img id="commentimage" alt='Noprofile' class='img-thumbnail img-comment'></a>
+                        <div class='col-xs-9 post-content rightcomment'>
+                            <div>
+                                <a id="commentusername"></a>
+                                <span class="blog-post-meta img-time" id="commentstamp"></span>
+                                <p id="commentcontent"></p>
+                            </div>
+                        </div>
+                    </div>
+                </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="following">
+            </div>
+        </div>
+    </div>
+{% endblock %}

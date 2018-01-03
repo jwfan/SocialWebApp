@@ -1,0 +1,73 @@
+{% extends "grumblr/base.html" %}
+{% block title %}EditProfile Template for Grumblr{% endblock %}
+
+{% block navbar %}
+    <div class="nav-bottons">
+        <a class="blog-nav-item" href="{% url 'index' %}">Home</a>
+        <a class="blog-nav-item active" href="{% url 'editprofile' %}">Settings</a>
+        <a class="blog-nav-item" href="{% url 'logout' %}">Logout</a>
+        <a class="blog-nav-item" href="#">Help</a>
+    </div>
+{% endblock navbar %}
+{% block sidebar %}
+
+{% endblock sidebar %}
+
+{% block primarypage %}
+    <h2 class="form-signin-heading">Edit your User information:</h2>
+    <div class="sidebar-intro">
+        <form class="form-signin" action={% url 'edituser' %} method="post">
+            {% csrf_token %}
+            <div class="middle">
+                {% for error in userform.non_field_errors %}
+                    <p>
+                        {{ error }}
+                    </p>
+                {% endfor %}
+                {% for error in userform.password1.errors %}
+                    <p>
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </div>
+            <div class="name-inputdiv">
+                <label for="{{ userform.firstname.id_for_label }}" class="sr-only">First name</label>
+                {{ userform.firstname }}
+                <label for="{{ userform.lastname.id_for_label }}" class="sr-only">Last name</label>
+                {{ userform.lastname }}
+            </div>
+            <div class="password-inputdiv">
+                {{ userform.subject.errors }}
+                <label for="{{ userform.password0.id_for_label }}" class="sr-only">Current Password</label>
+                {{ userform.password0 }}
+            </div>
+            <div class="password-inputdiv">
+                <label for="{{ userform.password1.id_for_label }}" class="sr-only">Password</label>
+                {{ userform.password1 }}
+            </div>
+            <div class="passwordconfirm-inputdiv">
+                <label for="{{ userform.password2.id_for_label }}" class="sr-only">Password confirmation</label>
+                {{ userform.password2 }}
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+    <hr class="hr2"/>
+    <h2 class="form-signin-heading">Edit your profile:</h2>
+    <div>
+        <form class="form-signin" enctype="multipart/form-data" action={% url 'editprofile' %} method="post">
+            {% csrf_token %}
+            <p class="profile-label">Upload you profile image:</p>
+            {{ profileform }}
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock primarypage %}
